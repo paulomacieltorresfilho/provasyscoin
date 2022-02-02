@@ -5,6 +5,11 @@ const USER = '"syscoin"';
 const PASSWORD = '"meEscolhe"';
 const PORT = process.env.PORT || 3000;
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+})
+
 app.get('/provasyscoin', (req, res) => {
     const { user, password } = req.query;
 
